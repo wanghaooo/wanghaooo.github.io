@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>BLOG</title>
+  <title>Wanghao Blogs</title>
   <subtitle>但行好事 莫问前程</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-25T05:55:09.705Z</updated>
+  <updated>2017-07-25T07:59:55.041Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,49 +16,157 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>My New Post</title>
+    <title>ES6总结</title>
     <link href="http://yoursite.com/2017/07/25/My-New-Post/"/>
     <id>http://yoursite.com/2017/07/25/My-New-Post/</id>
     <published>2017-07-25T05:38:22.000Z</published>
-    <updated>2017-07-25T05:55:09.705Z</updated>
+    <updated>2017-07-25T07:59:55.041Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="Testing" scheme="http://yoursite.com/categories/Testing/"/>
-    
-    
-      <category term="Testing" scheme="http://yoursite.com/tags/Testing/"/>
-    
-      <category term="Another Tag" scheme="http://yoursite.com/tags/Another-Tag/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/07/25/hello-world/"/>
-    <id>http://yoursite.com/2017/07/25/hello-world/</id>
-    <published>2017-07-25T02:04:47.638Z</published>
-    <updated>2017-07-25T02:04:47.638Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<p>var 和 let/const 的比较</p>
+<p>除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。<br>使用 var 的栗子：</p>
+<p>var snack = ‘Meow Mix’;<br>function getFood(food) {<br>    if (food) {<br>        var snack = ‘Friskies’;<br>        return snack;<br>    }<br>    return snack;<br>}<br>getFood(false); // undefined<br>当我们用 let 代替 var 的时候，观察会发生什么：</p>
+<p>let snack = ‘Meow Mix’;<br>function getFood(food) {<br>    if (food) {<br>        let snack = ‘Friskies’;<br>        return snack;<br>    }<br>    return snack;<br>}<br>getFood(false); // ‘Meow Mix’<br>当我们重构使用 var 的老代码的时候应该注意上面的变化。盲目地使用 let 替换 var 可能会出现出乎意料的情况。</p>
+<p>注意： let 和 const 是块级作用域，因此在变量未被定义之前使用它会产生一个 ReferenceError。<br>console.log(x); // ReferenceError: x is not defined<br>let x = ‘hi’;<br>最佳实践： 在遗留代码中放弃使用 var 声明意味着需要很小心地重构；在新的项目代码中，使用 let 声明一个可以改变的变量，用 const 声明一个不能被重新赋值的变量。<br>用块级作用域代替 IIFES</p>
+<p>函数立即执行表达式 的通常用途是创造一个内部的作用域，在 ES6 中，我们能够创造一个块级作用域而不仅限于函数作用域：<br>IIFES：</p>
+<p>(function () {<br>    var food = ‘Meow Mix’;<br>}());<br>console.log(food); // Reference Error<br>使用 ES6 的块级作用域：</p>
+<p>{<br>    let food = ‘Meow Mix’;<br>}<br>console.log(food); // Reference Error<br>箭头函数</p>
+<p>我们经常需要给回调函数维护一个词法作用域的上下文 this。<br>看看这个栗子：</p>
+<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(function (character) {<br>        return this.name + character; // Cannot read property ‘name’ of undefined<br>    });<br>};<br>一个常用的解决办法是把 this 存在一个变量中：</p>
+<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    var that = this; // Store the context of this<br>    return arr.map(function (character) {<br>        return that.name + character;<br>    });<br>};<br>我们也可以传递一个合适的 this 上下文：</p>
+<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(function (character) {<br>        return this.name + character;<br>    }, this);<br>}<br>我们还可以绑定上下文：</p>
+<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(function (character) {<br>        return this.name + character;<br>    }.bind(this));<br>};<br>使用 箭头函数，this 将不会受到影响，并且我们可以重写上面的函数：</p>
+<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(character =&gt; this.name + character);<br>};<br>最佳实践：当你需要维护一个 this 上下文的时候使用 箭头函数。<br>在我们写一个函数的时候，箭头函数更加简洁并且可以很简单地返回一个值：</p>
+<p>var squares = arr.map(function (x) { return x <em> x }); // Function Expression<br>const arr = [1, 2, 3, 4, 5];<br>const squares = arr.map(x =&gt; x </em> x); // Arrow Function for terser implementation<br>最佳实践：尽可能使用箭头函数代替原来的写法。<br>字符串</p>
+<p>在 ES6 中，标准库升级了很多，在这些变化中有许多新的对于字符串的函数，比如 .includes() 和 .repeat()。</p>
+<p>.includes( )</p>
+<p>var string = ‘food’;<br>var substring = ‘foo’;<br>console.log(string.indexOf(substring) &gt; -1);<br>之前我们使用 indexOf() 函数的返回值是否 &gt;-1 来判断字符串是否包含某些字符串，现在我们更简单地使用 .includes() 来返回一个布尔值来判断：</p>
+<p>const string = ‘food’;<br>const substring = ‘foo’;<br>console.log(string.includes(substring)); // true<br>.repeat( )</p>
+<p>function repeat(string, count) {<br>    var strings = [];<br>    while(strings.length &lt; count) {<br>        strings.push(string);<br>    }<br>    return strings.join(‘’);<br>}<br>在 ES6 中，可以更简便地实现：</p>
+<p>// String.repeat(numberOfRepetitions)<br>‘meow’.repeat(3); // ‘meowmeowmeow’<br>模版字符串</p>
+<p>使用 模版字符串 我们就可以不用对某些特殊自负进行转义处理了：</p>
+<p>var text = “This string contains \”double quotes\” which are escaped.”;<br>let text = <code>This string contains &quot;double quotes&quot; which don&#39;t need to be escaped anymore.</code>;<br>模版字符串 还支持插入，可以把变量值和字符串连接起来.</p>
+<p>var name = ‘Tiger’;<br>var age = 13;<br>console.log(‘My cat is named ‘ + name + ‘ and is ‘ + age + ‘ years old.’);<br>更简单：</p>
+<p>const name = ‘Tiger’;<br>const age = 13;<br>console.log(<code>My cat is named ${name} and is ${age} years old.</code>);<br>在 ES5 中，需要换行时，需要这样：</p>
+<p>var text = (<br>    ‘cat\n’ +<br>    ‘dog\n’ +<br>    ‘nickelodeon’<br>);<br>或者这样：</p>
+<p>var text = [<br>    ‘cat’,<br>    ‘dog’,<br>    ‘nickelodeon’<br>].join(‘\n’);<br>模版字符串 可以支持换行并且不需要额外的处理：</p>
+<p>let text = ( <code>cat
+dog
+nickelodeon</code><br>);<br>模版字符串 还支持表达式：</p>
+<p>let today = new Date();<br>let text = <code>The time and date is ${today.toLocaleString()}</code>;<br>解构</p>
+<p>结构可以让我们用一个更简便的语法从一个数组或者对象（即使是深层的）中分离出来值，并存储他们。</p>
+<p>结构数组</p>
+<p>var arr = [1, 2, 3, 4];<br>var a = arr[0];<br>var b = arr[1];<br>var c = arr[2];<br>var d = arr[3];<br>let [a, b, c, d] = [1, 2, 3, 4];<br>console.log(a); // 1<br>console.log(b); // 2<br>结构对象</p>
+<p>var luke = { occupation: ‘jedi’, father: ‘anakin’ };<br>var occupation = luke.occupation; // ‘jedi’<br>var father = luke.father; // ‘anakin’<br>let luke = { occupation: ‘jedi’, father: ‘anakin’ };<br>let {occupation, father} = luke;<br>console.log(occupation); // ‘jedi’<br>console.log(father); // ‘anakin’<br>模块</p>
+<p>在 ES6 之前，我们使用 Browserify 这样的库来创建客户端的模块化，在 node.js 中使用 require。<br>在 ES6 中，我们可以直接使用所有类型的模块化（AMD 和 CommonJS）。</p>
+<p>使用 CommonJS 的出口</p>
+<p>module.exports = 1;<br>module.exports = { foo: ‘bar’ };<br>module.exports = [‘foo’, ‘bar’];<br>module.exports = function bar () {};<br>使用 ES6 的出口</p>
+<p>在 ES6 中我们可以暴露多个值，使用 Exports：</p>
+<p>export let name = ‘David’;<br>export let age  = 25;​​<br>或者暴露一个对象列表：</p>
+<p>function sumTwo(a, b) {<br>    return a + b;<br>}<br>function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>export { sumTwo, sumThree };<br>我们还可以暴露函数、对象和其他的值，通过简单地使用 export 这个关键字：</p>
+<p>export function sumTwo(a, b) {<br>    return a + b;<br>}<br>export function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>最后，我们还可以绑定一个默认的输出：</p>
+<p>function sumTwo(a, b) {<br>    return a + b;<br>}<br>function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>let api = {<br>    sumTwo,<br>    sumThree<br>};<br>export default api;<br>/* Which is the same as</p>
+<ul>
+<li>export { api as default };<br>*/<br>最佳实践：总是在模块的最后面使用 export default 方法，这可以让暴露的东西更加清晰并且可以节省时间去找出暴露出来值的名字。尤其如此，在 CommonJS 中通常的实践就是暴露一个简单的值或者对象。坚持这种模式，可以让我们的代码更加可读，并且在 ES6 和 CommonJS 模块之间更好地兼容。<br>ES6 中的导入</li>
+</ul>
+<p>在 ES6 中同样提供了多样的导入方式，我们可以这么导入一个整个文件：</p>
+<p>import ‘underscore’;<br>需要着重注意的一点是简单的导入整个文件会在那个文件的顶部执行所有的代码<br>和 Python 中类似，我们可以命名导入的值：</p>
+<p>import { sumTwo, sumThree } from ‘math/addition’;<br>我们还可以重命名导入：</p>
+<p>import {<br>    sumTwo as addTwoNumbers,<br>    sumThree as sumThreeNumbers<br>} from ‘math/addition’;<br>另外，我们可以导入所有的东西（整体加载）：</p>
+<p>import * as util from ‘math/addition’;<br>最后，我们可以从一个模块中导入一个值的列表：</p>
+<p>import * as additionUtil from ‘math/addition’;<br>const { sumTwo, sumThree } = additionUtil;<br>可以像这样导入默认绑定的输出：</p>
+<p>import api from ‘math/addition’;<br>// Same as: import { default as api } from ‘math/addition’;<br>虽然最好保持出口的简单，但如果需要的话我们有时可以混合默认的进口和混合进口。当我们这样出口的时候：</p>
+<p>// foos.js<br>export { foo as default, foo1, foo2 };<br>我们可以这样导入它们：</p>
+<p>import foo, { foo1, foo2 } from ‘foos’;<br>当我们用 commonjs 的语法导入一个模块的出口时（比如 React），我们可以这样做：</p>
+<p>import React from ‘react’;<br>const { Component, PropTypes } = React;<br>还有更精简的写法：</p>
+<p>import React, { Component, PropTypes } from ‘react’;<br>注意：导出的值是动态引用的，而不是拷贝。因此，在一个模块中改变一个变量的绑定将影响输出模块中的值。应该避免改变这些导出值的公共接口。（原文这里我觉得有误）<br>参数</p>
+<p>在 ES5 中，在函数中我们需要各种操作去处理 默认参数、不定参数 和 重命名参数 等需求，在 ES6 中我们可以使用更简洁的语法完成这些需求：</p>
+<p>默认参数</p>
+<p>function addTwoNumbers(x, y) {<br>    x = x || 0;<br>    y = y || 0;<br>    return x + y;<br>}<br>ES6 中，函数的参数可以支持设置默认值：</p>
+<p>function addTwoNumbers(x=0, y=0) {<br>    return x + y;<br>}<br>addTwoNumbers(2, 4); // 6<br>addTwoNumbers(2); // 2<br>addTwoNumbers(); // 0<br>rest 参数</p>
+<p>在 ES5 中，我们需要这么处理不定参数：</p>
+<p>function logArguments() {<br>    for (var i=0; i &lt; arguments.length; i++) {<br>        console.log(arguments[i]);<br>    }<br>}<br>使用 rest ，我们就可以处理不确定数目的参数：</p>
+<p>function logArguments(…args) {<br>    for (let arg of args) {<br>        console.log(arg);<br>    }<br>}<br>命名参数</p>
+<p>在 ES5 中是使用配置对象的模式来处理命名参数，jQuery 中的使用：</p>
+<p>function initializeCanvas(options) {<br>    var height = options.height || 600;<br>    var width  = options.width  || 400;<br>    var lineStroke = options.lineStroke || ‘black’;<br>}<br>我们可以利用解构的一个函数的形参实现相同的功能：</p>
+<p>function initializeCanvas(<br>    { height=600, width=400, lineStroke=’black’}) {<br>        // Use variables height, width, lineStroke here<br>    }<br>如果我们想使整个值可选择，我们可以结构将一个空的对象：</p>
+<p>function initializeCanvas(<br>    { height=600, width=400, lineStroke=’black’} = {}) {<br>        // …<br>    }<br>展开操作</p>
+<p>在 ES5 中，我们可以 apply Math.max 方法来获得一个数组中的最大值：</p>
+<p>Math.max.apply(null, [-1, 100, 9001, -32]); // 9001<br>在 ES6 中，我们可以通过展开操作把一个数组的值作为参数传递给一个函数：</p>
+<p>Math.max(…[-1, 100, 9001, -32]); // 9001<br>我们可以更简洁地使用这个语法来合并数组：</p>
+<p>let cities = [‘San Francisco’, ‘Los Angeles’];<br>let places = [‘Miami’, …cities, ‘Chicago’]; // [‘Miami’, ‘San Francisco’, ‘Los Angeles’, ‘Chicago’]<br>类 Classes</p>
+<p>在 ES6 之前，我们通过构造函数来创造一个类，并且通过原型来扩展属性：</p>
+<p>function Person(name, age, gender) {<br>    this.name   = name;<br>    this.age    = age;<br>    this.gender = gender;<br>}<br>Person.prototype.incrementAge = function () {<br>    return this.age += 1;<br>};<br>然后可以这样继承类：</p>
+<p>function Personal(name, age, gender, occupation, hobby) {<br>    Person.call(this, name, age, gender);<br>    this.occupation = occupation;<br>    this.hobby = hobby;<br>}<br>Personal.prototype = Object.create(Person.prototype);<br>Personal.prototype.constructor = Personal;<br>Personal.prototype.incrementAge = function () {<br>    Person.prototype.incrementAge.call(this);<br>    this.age += 20;<br>    console.log(this.age);<br>};<br>在 ES6 中，提供了更多的语法糖，可以直接创造一个类：</p>
+<p>class Person {<br>    constructor(name, age, gender) {<br>        this.name   = name;<br>        this.age    = age;<br>        this.gender = gender;<br>    }<br>    incrementAge() {<br>      this.age += 1;<br>    }<br>}<br>使用 extends 关键字来继承一个类：</p>
+<p>class Personal extends Person {<br>    constructor(name, age, gender, occupation, hobby) {<br>        super(name, age, gender);<br>        this.occupation = occupation;<br>        this.hobby = hobby;<br>    }<br>    incrementAge() {<br>        super.incrementAge();<br>        this.age += 20;<br>        console.log(this.age);<br>    }<br>}<br>最佳实践：虽然使用 ES6 的语法创造类的时候，js引擎是如何实现类以及如何操作原型是令人费解的，但是未来对初学者来说这是一个好的开始，同时也可以让我们写更简洁的代码。<br>Symbols</p>
+<p>Symbols 在 ES6 之前就已经存在，但是我们现在可以直接使用一个开发的接口了。Symbols 是不可改变并且是独一无二的，可以在任意哈希中作一个key。</p>
+<p>Symbol()</p>
+<p>调用 Symbol() 或者 Symbol(description) 可以创造一个独一无二的符号，但是在全局是看不到的。Symbol() 的一个使用情况是给一个类或者命名空间打上补丁，但是可以确定的是你不会去更新它。比如，你想给 React.Component 类添加一个 refreshComponent 方法，但是可以确定的是你不会在之后更新这个方法：</p>
+<p>const refreshComponent = Symbol();<br>React.Component.prototype[refreshComponent] = () =&gt; {<br>    // do something<br>}<br>Symbol.for(key)</p>
+<p>Symbol.for(key) 同样会创造一个独一无二并且不可改变的 Symbol，但是它可以全局看到，两个相同的调用 Symbol.for(key) 会返回同一个 Symbol 类：</p>
+<p>Symbol(‘foo’) === Symbol(‘foo’) // false<br>Symbol.for(‘foo’) === Symbol(‘foo’) // false<br>Symbol.for(‘foo’) === Symbol.for(‘foo’) // true<br>对于 Symbols 的普遍用法（尤其是Symbol.for(key)）是为了协同性。它可以通过在一个第三方插件中已知的接口中对象中的参数中寻找用 Symbol 成员来实现，比如：</p>
+<p>function reader(obj) {<br>    const specialRead = Symbol.for(‘specialRead’);<br>    if (obj[specialRead]) {<br>        const reader = obj<a href="">specialRead</a>;<br>        // do something with reader<br>    } else {<br>        throw new TypeError(‘object cannot be read’);<br>    }<br>}<br>在另一个库中：</p>
+<p>const specialRead = Symbol.for(‘specialRead’);<br>class SomeReadableType {<br>    <a href="">specialRead</a> {<br>        const reader = createSomeReaderFrom(this);<br>        return reader;<br>    }<br>}<br>Maps</p>
+<p>Maps 在 JavaScript 中是一个非常必须的数据结构，在 ES6 之前，我们通过对象来实现哈希表：</p>
+<p>var map = new Object();<br>map[key1] = ‘value1’;<br>map[key2] = ‘value2’;<br>但是它并不能防止我们偶然地用一些特殊的属性名重写函数：</p>
+<blockquote>
+<p>getOwnProperty({ hasOwnProperty: ‘Hah, overwritten’}, ‘Pwned’);<br>TypeError: Property ‘hasOwnProperty’ is not a function<br>实际上 Maps 允许我们对值进行 set、get 和 search 操作：</p>
+</blockquote>
+<p>let map = new Map();</p>
+<blockquote>
+<p>map.set(‘name’, ‘david’);<br>map.get(‘name’); // david<br>map.has(‘name’); // true<br>Maps 更令人惊奇的部分就是它不仅限于使用字符串作为 key，还可以用其他任何类型的数据作为 key：</p>
+</blockquote>
+<p>let map = new Map([<br>    [‘name’, ‘david’],<br>    [true, ‘false’],<br>    [1, ‘one’],<br>    [{}, ‘object’],<br>    [function () {}, ‘function’]<br>]);<br>for (let key of map.keys()) {<br>    console.log(typeof key);<br>    // &gt; string, boolean, number, object, function<br>}<br>注意：但我们使用 map.get() 方法去测试相等时，如果在 Maps 中使用 函数 或者 对象 等非原始类型值的时候测试将不起作用，所以我们应该使用 Strings, Booleans 和 Numbers 这样的原始类型的值。<br>我们还可以使用 .entries() 来遍历迭代：</p>
+<p>for (let [key, value] of map.entries()) {<br>    console.log(key, value);<br>}<br>WeakMaps</p>
+<p>在 ES6 之前，为了存储私有变量，我们有各种各样的方法去实现，其中一种方法就是用命名约定：</p>
+<p>class Person {<br>    constructor(age) {<br>        this._age = age;<br>    }<br>    _incrementAge() {<br>        this._age += 1;<br>    }<br>}<br>但是命名约定在代码中仍然会令人混淆并且并不会真正的保持私有变量不被访问。现在，我们可以使用 WeakMaps 来存储变量：</p>
+<p>let _age = new WeakMap();<br>class Person {<br>    constructor(age) {<br>        _age.set(this, age);<br>    }<br>    incrementAge() {<br>        let age = _age.get(this) + 1;<br>        _age.set(this, age);<br>        if (age &gt; 50) {<br>            console.log(‘Midlife crisis’);<br>        }<br>    }<br>}<br>在 WeakMaps 存储变量很酷的一件事是它的 key 他不需要属性名称，可以使用 Reflect.ownKeys() 来查看这一点：</p>
+<blockquote>
+<p>const person = new Person(50);<br>person.incrementAge(); // ‘Midlife crisis’<br>Reflect.ownKeys(person); // []<br>一个更实际的实践就是可以 WeakMaps 储存 DOM 元素，而不会污染元素本身：</p>
+</blockquote>
+<p>let map = new WeakMap();<br>let el  = document.getElementById(‘someElement’);<br>// Store a weak reference to the element with a key<br>map.set(el, ‘reference’);<br>// Access the value of the element<br>let value = map.get(el); // ‘reference’<br>// Remove the reference<br>el.parentNode.removeChild(el);<br>el = null;<br>// map is empty, since the element is destroyed<br>如上所示，当一个对象被垃圾回收机制销毁的时候， WeakMap 将会自动地一处关于这个对象地键值对。</p>
+<p>注意：为了进一步说明这个例子的实用性，可以考虑 jQuery 是如何实现缓存一个对象相关于对引用地 DOM 元素对象。使用 jQuery ，当一个特定地元素一旦在 document 中移除的时候，jQuery 会自动地释放内存。总体来说，jQuery 在任何 dom 库中都是很有用的。<br>Promises</p>
+<p>Promises 可以让我们远离平行的代码（回调地狱）：</p>
+<p>func1(function (value1) {<br>    func2(value1, function (value2) {<br>        func3(value2, function (value3) {<br>            func4(value3, function (value4) {<br>                func5(value4, function (value5) {<br>                    // Do something with value 5<br>                });<br>            });<br>        });<br>    });<br>});<br>转变成垂直代码：</p>
+<p>func1(value1)<br>    .then(func2)<br>    .then(func3)<br>    .then(func4)<br>    .then(func5, value5 =&gt; {<br>        // Do something with value 5<br>    });<br>在 ES6 之前，我们使用 bluebird 或者 q，现在我们可以使用原生的 Promise 了。</p>
+<p>new Promise((resolve, reject) =&gt;<br>    reject(new Error(‘Failed to fulfill Promise’)))<br>        .catch(reason =&gt; console.log(reason));<br>我们有两个处理器，resolve（当Promise是 fulfilled 时的回调）和 reject（当Promise是 rejected 时的回调）：。</p>
+<p>Promises的好处：对错误的处理使用一些列回调会使代码很混乱，使用 Promise ，我看可以清晰的让错误冒泡并且在合适的时候处理它，甚至，在 Promise 确定了 resolved/rejected 之后，他的值是不可改变的－－它从来不会变化。<br>这是使用 Promise 的一个实际的栗子：</p>
+<p>var request = require(‘request’);<br>return new Promise((resolve, reject) =&gt; {<br>  request.get(url, (error, response, body) =&gt; {<br>    if (body) {<br>        resolve(JSON.parse(body));<br>      } else {<br>        resolve({});<br>      }<br>  });<br>});<br>我们还可以使用 Promise.all() 来 并行 处理多个异步函数：</p>
+<p>let urls = [<br>  ‘/api/commits’,<br>  ‘/api/issues/opened’,<br>  ‘/api/issues/assigned’,<br>  ‘/api/issues/completed’,<br>  ‘/api/issues/comments’,<br>  ‘/api/pullrequests’<br>];<br>let promises = urls.map((url) =&gt; {<br>  return new Promise((resolve, reject) =&gt; {<br>    $.ajax({ url: url })<br>      .done((data) =&gt; {<br>        resolve(data);<br>      });<br>  });<br>});<br>Promise.all(promises)<br>  .then((results) =&gt; {<br>    // Do something with results of all our promises<br> });<br>Generators 生成器</p>
+<p>就像 Promises 可以帮我们避免回调地狱，Generators 可以帮助我们让代码风格更整洁－－用同步的代码风格来写异步代码，它本质上是一个可以暂停计算并且可以随后返回表达式的值的函数。</p>
+<p>一个简单的栗子使用 generators：</p>
+<p>function* sillyGenerator() {<br>    yield 1;<br>    yield 2;<br>    yield 3;<br>    yield 4;<br>}<br>var generator = sillyGenerator();</p>
+<blockquote>
+<p>console.log(generator.next()); // { value: 1, done: false }<br>console.log(generator.next()); // { value: 2, done: false }<br>console.log(generator.next()); // { value: 3, done: false }<br>console.log(generator.next()); // { value: 4, done: false }<br>next 可以回去到下一个 yield 返回的值，当然上面的代码是非常不自然的，我们可以利用 Generators 来用同步的方式来写异步操作：</p>
+</blockquote>
+<p>// Hiding asynchronousity with Generators<br>function request(url) {<br>    getJSON(url, function(response) {<br>        generator.next(response);<br>    });<br>}<br>这里的 generator 函数将会返回需要的数据：</p>
+<p>function* getData() {<br>    var entry1 = yield request(‘<a href="http://some_api/item1" target="_blank" rel="external">http://some_api/item1</a>‘);<br>    var data1  = JSON.parse(entry1);<br>    var entry2 = yield request(‘<a href="http://some_api/item2" target="_blank" rel="external">http://some_api/item2</a>‘);<br>    var data2  = JSON.parse(entry2);<br>}<br>通过 yield，我们可以保证 entry1 有 data1 中我们需要解析并储存的数据。</p>
+<p>虽然我们可以利用 Generators 来用同步的方式来写异步操作，但是确认错误的传播变得不再清晰，我们可以在 Generators 中加上 Promise：</p>
+<p>function request(url) {<br>    return new Promise((resolve, reject) =&gt; {<br>        getJSON(url, resolve);<br>    });<br>}<br>然后我们写一个函数逐步调用 next 并且利用 request 方法产生一个 Promise：</p>
+<p>function iterateGenerator(gen) {<br>    var generator = gen();<br>    (function iterate(val) {<br>        var ret = generator.next();<br>        if(!ret.done) {<br>            ret.value.then(iterate);<br>        }<br>    })();<br>}<br>在 Generators 中加上 Promise 之后我们可以更清晰的使用 Promise 中的 .catch 和 reject来捕捉错误，让我们使用新的 Generator，和之前的还是蛮相似的：</p>
+<p>iterateGenerator(function* getData() {<br>    var entry1 = yield request(‘<a href="http://some_api/item1" target="_blank" rel="external">http://some_api/item1</a>‘);<br>    var data1  = JSON.parse(entry1);<br>    var entry2 = yield request(‘<a href="http://some_api/item2" target="_blank" rel="external">http://some_api/item2</a>‘);<br>    var data2  = JSON.parse(entry2);<br>});<br>Async Await</p>
+<p>当 ES6 真正到来的时候，async await 可以用更少的处理实现 Promise 和 Generators 所实现的异步处理：</p>
+<p>var request = require(‘request’);<br>function getJSON(url) {<br>  return new Promise(function(resolve, reject) {<br>    request(url, function(error, response, body) {<br>      resolve(body);<br>    });<br>  });<br>}<br>async function main() {<br>  var data = await getJSON();<br>  console.log(data); // NOT undefined!<br>}<br>main();<br>在 js 引擎中，它所实现的和 Generators 其实是一样的，我更推荐在 Generators + Promises 之上使用 async await，更多的资源和使用 ES7 和 用 babel 转化可以看这里。</p>
+<p>Getter/Setter 函数</p>
+<p>ES6 已经开始实现了 getter 和 setter 函数，比如虾面这个栗子：</p>
+<p>class Employee {<br>    constructor(name) {<br>        this._name = name;<br>    }<br>    get name() {<br>      if(this._name) {<br>        return ‘Mr. ‘ + this._name.toUpperCase();<br>      } else {<br>        return undefined;<br>      }<br>    }<br>    set name(newName) {<br>      if (newName == this._name) {<br>        console.log(‘I already have this name.’);<br>      } else if (newName) {<br>        this._name = newName;<br>      } else {<br>        return false;<br>      }<br>    }<br>}<br>var emp = new Employee(“James Bond”);<br>// uses the get method in the background<br>if (emp.name) {<br>  console.log(emp.name);  // Mr. JAMES BOND<br>}<br>// uses the setter in the background<br>emp.name = “Bond 007”;<br>console.log(emp.name);  // Mr. BOND 007<br>最新版本的浏览器也在对象中实现了 getter 和 setter 函数，我们可以使用它们来实现 计算属性，在设置和获取一个属性之前加上监听器和处理。</p>
+<p>var person = {<br>  firstName: ‘James’,<br>  lastName: ‘Bond’,<br>  get fullName() {<br>      console.log(‘Getting FullName’);<br>      return this.firstName + ‘ ‘ + this.lastName;<br>  },<br>  set fullName (name) {<br>      console.log(‘Setting FullName’);<br>      var words = name.toString().split(‘ ‘);<br>      this.firstName = words[0] || ‘’;<br>      this.lastName = words[1] || ‘’;<br>  }<br>}<br>person.fullName; // James Bond<br>person.fullName = ‘Bond 007’;<br>person.fullName; // Bond 007</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;var 和 let/const 的比较&lt;/p&gt;
+&lt;p&gt;除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。&lt;br&gt;使用 var 的栗子：&lt;/p&gt;
+&lt;p&gt;var snac
     
     </summary>
     
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
+    
+    
+      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
+    
+      <category term="总结" scheme="http://yoursite.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
