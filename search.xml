@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Wanghao Blogs</title>
-  <subtitle>但行好事 莫问前程</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<search> 
   
-  <link href="http://yoursite.com/"/>
-  <updated>2017-07-26T14:18:54.702Z</updated>
-  <id>http://yoursite.com/</id>
-  
-  <author>
-    <name>Wanghao</name>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>浅谈JS中的异步问题</title>
-    <link href="http://yoursite.com/2017/07/26/%E6%B5%85%E8%B0%88JS%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2017/07/26/浅谈JS中的异步问题/</id>
-    <published>2017-07-26T10:46:33.000Z</published>
-    <updated>2017-07-26T14:18:54.702Z</updated>
-    
-    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=449818934&auto=1&height=32"></iframe>
+    <entry>
+      <title><![CDATA[浅谈JS中的异步问题]]></title>
+      <url>/2017/07/26/%E6%B5%85%E8%B0%88JS%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=449818934&auto=1&height=32"></iframe>
 
 <p>JS的单线程</p>
 <p>Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。</p>
@@ -63,26 +46,20 @@ loading(show);
 <pre><code>ES6中的Promise
 </code></pre><p>具体可以看阮一峰的详细教程<br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/promise</a></p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=
-    
-    </summary>
-    
-    
-      <category term="JS" scheme="http://yoursite.com/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ajax笔记</title>
-    <link href="http://yoursite.com/2017/07/26/Ajax%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2017/07/26/Ajax笔记/</id>
-    <published>2017-07-26T09:51:40.000Z</published>
-    <updated>2017-07-26T13:47:43.829Z</updated>
-    
-    <content type="html"><![CDATA[<p>AJAX包括以下几个步骤。</p>
+    <entry>
+      <title><![CDATA[Ajax笔记]]></title>
+      <url>/2017/07/26/Ajax%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<p>AJAX包括以下几个步骤。</p>
 <pre><code>1.创建AJAX对象
 2.发出HTTP请求
 3.接收服务器传回的数据
@@ -366,29 +343,14 @@ xhr.setRequestHeader(&apos;Content-Length&apos;, JSON.stringify(data).length);
 xhr.send(JSON.stringify(data));
 </code></pre><p>上面代码首先设置头信息Content-Type，表示发送JSON格式的数据；然后设置Content-Length，表示数据长度；最后发送JSON数据。</p>
 ]]></content>
+      
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;AJAX包括以下几个步骤。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.创建AJAX对象
-2.发出HTTP请求
-3.接收服务器传回的数据
-4.更新网页数据
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Ajax跨域理解</title>
-    <link href="http://yoursite.com/2017/07/26/Ajax%E8%B7%A8%E5%9F%9F%E7%90%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2017/07/26/Ajax跨域理解/</id>
-    <published>2017-07-26T05:02:01.000Z</published>
-    <updated>2017-07-26T10:02:04.267Z</updated>
-    
-    <content type="html"><![CDATA[<p>什么是跨域？</p>
+    <entry>
+      <title><![CDATA[Ajax跨域理解]]></title>
+      <url>/2017/07/26/Ajax%E8%B7%A8%E5%9F%9F%E7%90%86%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>什么是跨域？</p>
 <p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p>
 <p>same-origin policy [同源策略]<br>　　在客户端编程语言中，如javascript和ActionScript，同源策略是一个很重要的安全理念，它在保证数据的安全性方面有着重要的意义。同源策略规定跨域之间的脚本是隔离的，一个域的脚本不能访问和操作另外一个域的绝大部分属性和方法。</p>
 <p>　　那么什么叫相同域，什么叫不同的域呢？当两个域具有相同的协议(如http), 相同的端口(如80)，相同的host（如www.example.org)，那么我们就可以认为它们是相同的域。比如<a href="http://www.example.org/和http://www.example.org/sub/是同域，而http://www.example.org" target="_blank" rel="external">http://www.example.org/和http://www.example.org/sub/是同域，而http://www.example.org</a>, <a href="https://www.example.org" target="_blank" rel="external">https://www.example.org</a>, <a href="http://www.example.org:8080" target="_blank" rel="external">http://www.example.org:8080</a>, <a href="http://sub.example.org中的任何两个都将构成跨域。" target="_blank" rel="external">http://sub.example.org中的任何两个都将构成跨域。</a></p>
@@ -397,28 +359,20 @@ xhr.send(JSON.stringify(data));
 <p>浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。<br>只要同时满足以下两大条件，就属于简单请求。<br>（1) 请求方法是以下三种方法之一：<br>HEAD<br>GET<br>POST<br>（2）HTTP的头信息不超出以下几种字段：<br>Accept<br>Accept-Language<br>Content-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain<br>凡是不同时满足上面两个条件，就属于非简单请求。<br>浏览器对这两种请求的处理，是不一样的。</p>
 <p>以下是对两种不同请求详解：<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> Ajax </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;什么是跨域？&lt;/p&gt;
-&lt;p&gt;首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：&lt;/p&gt;
-&lt;p&gt;same-origin policy [同源策略]&lt;br&gt;　　
-    
-    </summary>
-    
-    
-      <category term="Ajax" scheme="http://yoursite.com/tags/Ajax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6总结</title>
-    <link href="http://yoursite.com/2017/07/25/ES6%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/07/25/ES6总结/</id>
-    <published>2017-07-25T08:38:10.000Z</published>
-    <updated>2017-07-26T12:35:08.149Z</updated>
-    
-    <content type="html"><![CDATA[<p>目录</p>
+    <entry>
+      <title><![CDATA[ES6总结]]></title>
+      <url>/2017/07/25/ES6%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>目录</p>
 <p>1.var 和 let/const 的比较用<br>2.块级作用域代替 IIFES<br>3.箭头函数<br>4.字符串<br>5.解构<br>6.模块</p>
 <pre><code>var 和 let/const 的比较
 </code></pre><p>除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。<br>使用 var 的栗子：</p>
@@ -471,19 +425,16 @@ console.log(food); // Reference Error
 <p>import React from ‘react’;<br>const { Component, PropTypes } = React;<br>还有更精简的写法：</p>
 <p>import React, { Component, PropTypes } from ‘react’;<br>导出的值是动态引用的，而不是拷贝。因此，在一个模块中改变一个变量的绑定将影响输出模块中的值。应该避免改变这些导出值的公共接口。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;目录&lt;/p&gt;
-&lt;p&gt;1.var 和 let/const 的比较用&lt;br&gt;2.块级作用域代替 IIFES&lt;br&gt;3.箭头函数&lt;br&gt;4.字符串&lt;br&gt;5.解构&lt;br&gt;6.模块&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var 和 let/const 的比较
-&lt;/code&gt;&lt;/pre&gt;&lt;p
-    
-    </summary>
-    
-    
-      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
-    
-  </entry>
   
-</feed>
+  
+</search>
