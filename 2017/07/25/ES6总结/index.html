@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Wanghao Blogs">
 <meta property="og:description" content="目录 1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块 var 和 let/const 的比较 除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。使用 var 的栗子： 123456789101112var snack = &amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-25T15:58:04.995Z">
+<meta property="og:updated_time" content="2017-07-26T02:15:31.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6总结">
 <meta name="twitter:description" content="目录 1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块 var 和 let/const 的比较 除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。使用 var 的栗子： 123456789101112var snack = &amp;a">
@@ -328,7 +328,7 @@
 <pre><code>var 和 let/const 的比较
 </code></pre><p>除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。<br>使用 var 的栗子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var snack = &apos;Meow Mix&apos;;</div><div class="line">function getFood(food) &#123;</div><div class="line">    if (food) &#123;</div><div class="line">        var snack = &apos;Friskies&apos;;</div><div class="line">        return snack;</div><div class="line">    &#125;</div><div class="line">    return snack;</div><div class="line">&#125;</div><div class="line">getFood(false); // undefined</div><div class="line">alert(&apos;Hello World!&apos;);</div><div class="line"></div></pre></td></tr></table></figure>
-<p>当我们用 let 代替 var 的时候：<br>    let snack = ‘Meow Mix’;<br>    function getFood(food) {<br>        if (food) {<br>            let snack = ‘Friskies’;<br>            return snack;<br>        }<br>        return snack;<br>    }<br>    getFood(false); // ‘Meow Mix’<br>当我们重构使用 var 的老代码的时候应该注意上面的变化。盲目地使用 let 替换 var 可能会出现出乎意料的情况。</p>
+<p>当我们用 let 代替 var 的时候：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let snack = &apos;Meow Mix&apos;;</div><div class="line">function getFood(food) &#123;</div><div class="line">    if (food) &#123;</div><div class="line">        let snack = &apos;Friskies&apos;;</div><div class="line">        return snack;</div><div class="line">    &#125;</div><div class="line">    return snack;</div><div class="line">&#125;</div><div class="line">getFood(false); // &apos;Meow Mix&apos;</div></pre></td></tr></table></figure><br>当我们重构使用 var 的老代码的时候应该注意上面的变化。盲目地使用 let 替换 var 可能会出现出乎意料的情况。</p>
 <p>注意：let 和 const 是块级作用域，因此在变量未被定义之前使用它会产生一个 ReferenceError。<br>    console.log(x); // ReferenceError: x is not defined<br>    let x = ‘hi’;</p>
 <p>在遗留代码中放弃使用 var 声明意味着需要很小心地重构；在新的项目代码中，使用 let 声明一个可以改变的变量，用 const 声明一个不能被重新赋值的变量。<br>用块级作用域代替 IIFES</p>
 <p>函数立即执行表达式 的通常用途是创造一个内部的作用域，在 ES6 中，我们能够创造一个块级作用域而不仅限于函数作用域：<br>    IIFES：</p>
@@ -339,46 +339,12 @@ console.log(food); // Reference Error
 </code></pre><p>使用 ES6 的块级作用域：</p>
 <p>{<br>    let food = ‘Meow Mix’;<br>}<br>console.log(food); // Reference Error</p>
 <pre><code>箭头函数
-</code></pre><p>我们经常需要给回调函数维护一个词法作用域的上下文 this。<br>看看这个栗子：</p>
-<pre><code>function Person(name) {
-    this.name = name;
-}
-Person.prototype.prefixName = function (arr) {
-    return arr.map(function (character) {
-        return this.name + character; // Cannot read property &apos;name&apos; of undefined
-    });
-};
-</code></pre><p>一个常用的解决办法是把 this 存在一个变量中：</p>
-<pre><code>function Person(name) {
-    this.name = name;
-}
-Person.prototype.prefixName = function (arr) {
-    var that = this; // Store the context of this
-    return arr.map(function (character) {
-        return that.name + character;
-    });
-};
-</code></pre><p>我们也可以传递一个合适的 this 上下文：</p>
-<pre><code>function Person(name) {
-    this.name = name;
-}
-Person.prototype.prefixName = function (arr) {
-    return arr.map(function (character) {
-        return this.name + character;
-    }, this);
-}
-</code></pre><p>我们还可以绑定上下文：</p>
-<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(function (character) {<br>        return this.name + character;<br>    }.bind(this));<br>};<br>使用箭头函数，this 将不会受到影响，并且我们可以重写上面的函数：</p>
-<p>function Person(name) {<br>    this.name = name;<br>}<br>Person.prototype.prefixName = function (arr) {<br>    return arr.map(character =&gt; this.name + character);<br>};</p>
-<p>当你需要维护一个 this 上下文的时候使用 箭头函数。<br>在我们写一个函数的时候，箭头函数更加简洁并且可以很简单地返回一个值：</p>
-<p>var squares = arr.map(function (x) { return x <em> x }); // Function Expression<br>const arr = [1, 2, 3, 4, 5];<br>const squares = arr.map(x =&gt; x </em> x); // Arrow Function for terser implementation</p>
+</code></pre><p>我们经常需要给回调函数维护一个词法作用域的上下文 this。<br>看看这个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.prefixName = function (arr) &#123;</div><div class="line">    return arr.map(function (character) &#123;</div><div class="line">        return this.name + character; // Cannot read property &apos;name&apos; of undefined</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br>一个常用的解决办法是把 this 存在一个变量中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.prefixName = function (arr) &#123;</div><div class="line">    var that = this; // Store the context of this</div><div class="line">    return arr.map(function (character) &#123;</div><div class="line">        return that.name + character;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br>我们也可以传递一个合适的 this 上下文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.prefixName = function (arr) &#123;</div><div class="line">    return arr.map(function (character) &#123;</div><div class="line">        return this.name + character;</div><div class="line">    &#125;, this);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>我们还可以绑定上下文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.prefixName = function (arr) &#123;</div><div class="line">    return arr.map(function (character) &#123;</div><div class="line">        return this.name + character;</div><div class="line">    &#125;.bind(this));</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br>使用箭头函数，this 将不会受到影响，并且我们可以重写上面的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.prefixName = function (arr) &#123;</div><div class="line">    return arr.map(character =&gt; this.name + character);</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br>当你需要维护一个 this 上下文的时候使用 箭头函数。<br>在我们写一个函数的时候，箭头函数更加简洁并且可以很简单地返回一个值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var squares = arr.map(function (x) &#123; return x * x &#125;); // Function Expression</div><div class="line">const arr = [1, 2, 3, 4, 5];</div><div class="line">const squares = arr.map(x =&gt; x * x); // Arrow Function for terser implementation</div></pre></td></tr></table></figure></p>
 <p>字符串</p>
 <p>在 ES6 中，标准库升级了很多，在这些变化中有许多新的对于字符串的函数，比如 .includes() 和 .repeat()。</p>
 <p>.includes( )</p>
-<p>var string = ‘food’;<br>var substring = ‘foo’;<br>console.log(string.indexOf(substring) &gt; -1);<br>之前我们使用 indexOf() 函数的返回值是否 &gt;-1 来判断字符串是否包含某些字符串，现在我们更简单地使用 .includes() 来返回一个布尔值来判断：</p>
-<p>const string = ‘food’;<br>const substring = ‘foo’;<br>console.log(string.includes(substring)); // true<br>.repeat( )</p>
-<p>function repeat(string, count) {<br>    var strings = [];<br>    while(strings.length &lt; count) {<br>        strings.push(string);<br>    }<br>    return strings.join(‘’);<br>}<br>在 ES6 中，可以更简便地实现：</p>
-<p>// String.repeat(numberOfRepetitions)<br>‘meow’.repeat(3); // ‘meowmeowmeow’<br>模版字符串</p>
+<p>var string = ‘food’;<br>var substring = ‘foo’;<br>console.log(string.indexOf(substring) &gt; -1);<br>之前我们使用 indexOf() 函数的返回值是否 &gt;-1 来判断字符串是否包含某些字符串，现在我们更简单地使用 .includes() 来返回一个布尔值来判断：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const string = &apos;food&apos;;</div><div class="line">const substring = &apos;foo&apos;;</div><div class="line">console.log(string.includes(substring)); // true</div><div class="line">.repeat( )</div><div class="line"></div><div class="line">function repeat(string, count) &#123;</div><div class="line">    var strings = [];</div><div class="line">    while(strings.length &lt; count) &#123;</div><div class="line">        strings.push(string);</div><div class="line">    &#125;</div><div class="line">    return strings.join(&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>在 ES6 中，可以更简便地实现：</p>
+<p>// String.repeat(numberOfRepetitions)<br>‘meow’.repeat(3); // ‘meowmeowmeow’<br>                                模版字符串</p>
 <p>使用 模版字符串 我们就可以不用对某些特殊自负进行转义处理了：</p>
 <p>var text = “This string contains \”double quotes\” which are escaped.”;<br>let text = <code>This string contains &quot;double quotes&quot; which don&#39;t need to be escaped anymore.</code>;<br>模版字符串 还支持插入，可以把变量值和字符串连接起来.</p>
 <p>var name = ‘Tiger’;<br>var age = 13;<br>console.log(‘My cat is named ‘ + name + ‘ and is ‘ + age + ‘ years old.’);<br>更简单：</p>
@@ -388,23 +354,17 @@ Person.prototype.prefixName = function (arr) {
 <p>let text = ( <code>cat
 dog
 nickelodeon</code><br>);<br>模版字符串 还支持表达式：</p>
-<p>let today = new Date();<br>let text = <code>The time and date is ${today.toLocaleString()}</code>;<br>解构</p>
+<p>let today = new Date();<br>let text = <code>The time and date is ${today.toLocaleString()}</code>;<br>                                      解构</p>
 <p>结构可以让我们用一个更简便的语法从一个数组或者对象（即使是深层的）中分离出来值，并存储他们。</p>
 <p>结构数组</p>
 <p>var arr = [1, 2, 3, 4];<br>var a = arr[0];<br>var b = arr[1];<br>var c = arr[2];<br>var d = arr[3];<br>let [a, b, c, d] = [1, 2, 3, 4];<br>console.log(a); // 1<br>console.log(b); // 2<br>结构对象</p>
 <p>var luke = { occupation: ‘jedi’, father: ‘anakin’ };<br>var occupation = luke.occupation; // ‘jedi’<br>var father = luke.father; // ‘anakin’<br>let luke = { occupation: ‘jedi’, father: ‘anakin’ };<br>let {occupation, father} = luke;<br>console.log(occupation); // ‘jedi’<br>console.log(father); // ‘anakin’</p>
-<p>模块</p>
-<p>在 ES6 之前，我们使用 Browserify 这样的库来创建客户端的模块化，在 node.js 中使用 require。<br>在 ES6 中，我们可以直接使用所有类型的模块化（AMD 和 CommonJS）。</p>
+<pre><code>模块
+</code></pre><p>在 ES6 之前，我们使用 Browserify 这样的库来创建客户端的模块化，在 node.js 中使用 require。<br>在 ES6 中，我们可以直接使用所有类型的模块化（AMD 和 CommonJS）。</p>
 <p>使用 CommonJS 的出口</p>
 <p>module.exports = 1;<br>module.exports = { foo: ‘bar’ };<br>module.exports = [‘foo’, ‘bar’];<br>module.exports = function bar () {};</p>
 <p>使用 ES6 的出口<br>在 ES6 中我们可以暴露多个值，使用 Exports：</p>
-<p>export let name = ‘David’;<br>export let age  = 25;​​<br>或者暴露一个对象列表：</p>
-<p>function sumTwo(a, b) {<br>    return a + b;<br>}<br>function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>export { sumTwo, sumThree };<br>我们还可以暴露函数、对象和其他的值，通过简单地使用 export 这个关键字：</p>
-<p>export function sumTwo(a, b) {<br>    return a + b;<br>}<br>export function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>最后，我们还可以绑定一个默认的输出：</p>
-<p>function sumTwo(a, b) {<br>    return a + b;<br>}<br>function sumThree(a, b, c) {<br>    return a + b + c;<br>}<br>let api = {<br>    sumTwo,<br>    sumThree<br>};<br>export default api;<br>/* Which is the same as</p>
-<ul>
-<li>export { api as default };<br>*/<br>总是在模块的最后面使用 export default 方法，这可以让暴露的东西更加清晰并且可以节省时间去找出暴露出来值的名字。尤其如此，在 CommonJS 中通常的实践就是暴露一个简单的值或者对象。坚持这种模式，可以让我们的代码更加可读，并且在 ES6 和 CommonJS 模块之间更好地兼容。</li>
-</ul>
+<p>export let name = ‘David’;<br>export let age  = 25;​​<br>或者暴露一个对象列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function sumTwo(a, b) &#123;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">function sumThree(a, b, c) &#123;</div><div class="line">    return a + b + c;</div><div class="line">&#125;</div><div class="line">export &#123; sumTwo, sumThree &#125;;</div></pre></td></tr></table></figure><br>我们还可以暴露函数、对象和其他的值，通过简单地使用 export 这个关键字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export function sumTwo(a, b) &#123;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">export function sumThree(a, b, c) &#123;</div><div class="line">    return a + b + c;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>最后，我们还可以绑定一个默认的输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function sumTwo(a, b) &#123;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">function sumThree(a, b, c) &#123;</div><div class="line">    return a + b + c;</div><div class="line">&#125;</div><div class="line">let api = &#123;</div><div class="line">    sumTwo,</div><div class="line">    sumThree</div><div class="line">&#125;;</div><div class="line">export default api;</div><div class="line">/* Which is the same as</div><div class="line"> * export &#123; api as default &#125;;</div><div class="line"> */</div></pre></td></tr></table></figure><br>总是在模块的最后面使用 export default 方法，这可以让暴露的东西更加清晰并且可以节省时间去找出暴露出来值的名字。尤其如此，在 CommonJS 中通常的实践就是暴露一个简单的值或者对象。坚持这种模式，可以让我们的代码更加可读，并且在 ES6 和 CommonJS 模块之间更好地兼容。</p>
 <p>ES6 中的导入<br>在 ES6 中同样提供了多样的导入方式，我们可以这么导入一个整个文件：</p>
 <p>import ‘underscore’;<br>需要着重注意的一点是简单的导入整个文件会在那个文件的顶部执行所有的代码<br>和 Python 中类似，我们可以命名导入的值：</p>
 <p>import { sumTwo, sumThree } from ‘math/addition’;<br>我们还可以重命名导入：</p>
@@ -529,7 +489,7 @@ nickelodeon</code><br>);<br>模版字符串 还支持表达式：</p>
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
