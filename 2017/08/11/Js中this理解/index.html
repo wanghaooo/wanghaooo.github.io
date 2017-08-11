@@ -105,16 +105,17 @@
 
 
 
-<meta name="description" content="王豪的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wanghao Blogs">
-<meta property="og:url" content="http://yoursite.com/categories/JS/index.html">
+<meta name="description" content="this 的指向1.作为普通函数调用当函数作为一个普通函数被调用，this 指向全局对象。在浏览器里，全局对象就是 window。 window.name = &amp;apos;linxin&amp;apos;; function getName(){     console.log(this.name); } getName();                   // linxin 可以看出，此时 thi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js中this理解">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/Js中this理解/index.html">
 <meta property="og:site_name" content="Wanghao Blogs">
-<meta property="og:description" content="王豪的个人博客">
+<meta property="og:description" content="this 的指向1.作为普通函数调用当函数作为一个普通函数被调用，this 指向全局对象。在浏览器里，全局对象就是 window。 window.name = &amp;apos;linxin&amp;apos;; function getName(){     console.log(this.name); } getName();                   // linxin 可以看出，此时 thi">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-11T13:29:33.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wanghao Blogs">
-<meta name="twitter:description" content="王豪的个人博客">
+<meta name="twitter:title" content="Js中this理解">
+<meta name="twitter:description" content="this 的指向1.作为普通函数调用当函数作为一个普通函数被调用，this 指向全局对象。在浏览器里，全局对象就是 window。 window.name = &amp;apos;linxin&amp;apos;; function getName(){     console.log(this.name); } getName();                   // linxin 可以看出，此时 thi">
 
 
 
@@ -142,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/JS/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/Js中this理解/"/>
 
 
 
 
 
-  <title>分类: JS | Wanghao Blogs</title>
+  <title>Js中this理解 | Wanghao Blogs</title>
   
 
 
@@ -173,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,45 +282,203 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>JS<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/浅谈JS中的异步问题/" itemprop="url">
-              
-                <span itemprop="name">JS中的异步问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T18:46:33+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/Js中this理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wanghao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wanghao Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Js中this理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T21:18:15+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>this 的指向<br>1.作为普通函数调用<br>当函数作为一个普通函数被调用，this 指向全局对象。在浏览器里，全局对象就是 window。</p>
+<pre><code>window.name = &apos;linxin&apos;;
+function getName(){
+    console.log(this.name);
+}
+getName();                   // linxin
+</code></pre><p>可以看出，此时 this 指向了全局对象 window。<br>在ECMAScript5的严格模式下，这种情况 this 已经被规定不会指向全局对象了，而是 undefined。</p>
+<pre><code>&apos;use strict&apos;;
+function fun(){
+    console.log(this);
+}
+fun();                      // undefined
+</code></pre><p>2.作为对象的方法调用<br>当函数作为一个对象里的方法被调用，this 指向该对象</p>
+<pre><code>var obj = {
+    name : &apos;linxin&apos;,
+    getName : function(){
+        console.log(this.name);
+    }
+}
+obj.getName();              // linxin
+</code></pre><p>如果把对象的方法赋值给一个变量，再调用这个变量：</p>
+<pre><code>var obj = {
+    fun1 : function(){
+        console.log(this);
+    }
+}
+var fun2 = obj.fun1;
+fun2();                     // window
+</code></pre><p>此时调用 fun2 方法 输出了 window 对象，说明此时 this 指向了全局对象。给 fun2 赋值，其实是相当于：</p>
+<pre><code>var fun2 = function(){
+    console.log(this);
+}
+</code></pre><p>可以看出，此时的 this 已经跟 obj 没有任何关系了。这时 fun2 是作为普通函数调用。</p>
+<p>3.作为构造函数调用<br>js中没有类，但是可以从构造器中创建对象，并提供了 new 运算符来进行调用该构造器。构造器的外表跟普通函数一样，大部分的函数都可以当做构造器使用。当构造函数被调用时，this 指向了该构造函数实例化出来的对象。</p>
+<pre><code>var Person = function(){
+    this.name = &apos;linxin&apos;;
+}
+var obj = new Person();
+console.log(obj.name);      // linxin
+</code></pre><p>如果构造函数显式的返回一个对象，那么 this 则会指向该对象。</p>
+<pre><code>var Person = function(){
+    this.name = &apos;linxin&apos;;
+    return {
+        name : &apos;linshuai&apos;
+    }
+}
+var obj = new Person();
+console.log(obj.name);      // linshuai
+</code></pre><p>如果该函数不用 new 调用，当作普通函数执行，那么 this 依然指向全局对象。</p>
+<p>4.call() 或 apply() 调用<br>通过调用函数的 call() 或 apply() 方法可动态的改变 this 的指向。</p>
+<pre><code>var obj1 = {
+    name : &apos;linxin&apos;,
+    getName : function(){
+        console.log(this.name);
+    }
+}
+var obj2 = {
+    name : &apos;linshuai&apos;
+}
+obj1.getName();             // linxin
+obj1.getName.call(obj2);    // linshuai
+obj1.getName.apply(obj2);   // linshuai
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/09/浅谈JS中的异步问题/" rel="next" title="JS中的异步问题">
+                <i class="fa fa-chevron-left"></i> JS中的异步问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -327,6 +486,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -586,10 +751,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -615,6 +780,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139907"></script>
+      <!-- UY END -->
     
   
 
