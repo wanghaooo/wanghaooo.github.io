@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[浅谈JS中的异步问题]]></title>
-      <url>/2017/07/26/%E6%B5%85%E8%B0%88JS%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
+      <title><![CDATA[JS中的异步问题]]></title>
+      <url>/2017/08/09/%E6%B5%85%E8%B0%88JS%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=449818934&auto=1&height=32"></iframe>
 
 <p>JS的单线程</p>
@@ -47,18 +47,18 @@ loading(show);
 </code></pre><p>具体可以看阮一峰的详细教程<br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/promise</a></p>
 ]]></content>
       
+        <categories>
+            
+            <category> JS </category>
+            
+        </categories>
         
-        <tags>
-            
-            <tag> JS </tag>
-            
-        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[Ajax笔记]]></title>
-      <url>/2017/07/26/Ajax%E7%AC%94%E8%AE%B0/</url>
+      <url>/2017/08/06/Ajax%E7%AC%94%E8%AE%B0/</url>
       <content type="html"><![CDATA[<p>AJAX包括以下几个步骤。</p>
 <pre><code>1.创建AJAX对象
 2.发出HTTP请求
@@ -342,14 +342,96 @@ setRequestHeader()
 xhr.setRequestHeader(&apos;Content-Length&apos;, JSON.stringify(data).length);
 xhr.send(JSON.stringify(data));
 </code></pre><p>上面代码首先设置头信息Content-Type，表示发送JSON格式的数据；然后设置Content-Length，表示数据长度；最后发送JSON数据。</p>
+<pre><code>Fetch API
+</code></pre><p>Fetch API是一种新规范，用来取代XMLHttpRequest对象。它主要有两个特点，一是接口合理化，Ajax是将所有不同性质的接口都放在XHR对象上，而Fetch是将它们分散在几个不同的对象上，设计更合理；二是Fetch操作返回Promise对象，避免了嵌套的回调函数。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> Ajax </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Vue组件理解]]></title>
+      <url>/2017/08/02/Vue%E7%BB%84%E4%BB%B6%E7%90%86%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>props</p>
+<p>组件实例的作用域是孤立的。这意味着不能在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的 props 选项。<br>子组件要显式地用 props 选项声明它期待获得的数据：</p>
+<pre><code>Vue.component(&apos;child&apos;, {
+  // 声明 props
+  props: [&apos;message&apos;],
+  // 就像 data 一样，prop 可以用在模板内
+  // 同样也可以在 vm 实例中像“this.message”这样使用
+  template: &apos;&lt;span&gt;{{ message }}&lt;/span&gt;&apos;
+})
+</code></pre><p>然后我们可以直接在子组件中传入字符串：</p>
+<pre><code>&lt;child message=&quot;hello!&quot;&gt;&lt;/child&gt;
+</code></pre><p>结果：hello</p>
+<p>在模板中，要动态地绑定父组件的数据到子模板的 props，与绑定到任何普通的HTML特性相类似，就是用 v-bind。每当父组件的数据变化时，该变化也会传导给子组件：</p>
+<pre><code>&lt;div&gt;
+  &lt;input v-model=&quot;parentMsg&quot;&gt;
+  &lt;br&gt;
+  &lt;child v-bind:my-message=&quot;parentMsg&quot;&gt;&lt;/child&gt;
+&lt;/div&gt;
+</code></pre><p>修改 prop 中数据的两种原因：<br>prop 作为初始值传入后，子组件想把它当作局部数据来用；<br>prop 作为初始值传入，由子组件处理成其它数据输出。<br>对这两种原因，正确的应对方式是：<br>定义一个局部变量，并用 prop 的值初始化它：</p>
+<pre><code>props: [&apos;initialCounter&apos;],
+data: function () {
+  return { counter: this.initialCounter }
+}
+</code></pre><p>定义一个计算属性，处理 prop 的值并返回。</p>
+<pre><code>props: [&apos;size&apos;],
+computed: {
+  normalizedSize: function () {
+    return this.size.trim().toLowerCase()
+  }
+}
+</code></pre><p>注意：在JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。</p>
+<p>子组件要把数据传递回去就是自定义事件<br>使用 v-on 绑定自定义事件</p>
+<p>每个 Vue 实例都实现了事件接口 (Events interface)，即：<br>使用 $on(eventName) 监听事件<br>使用 $emit(eventName) 触发事件</p>
+<p>父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件。不能用 $on 侦听子组件抛出的事件，而必须在模板里直接用 v-on 绑定<br>v-on将increment事件与incrementTotal事件互相绑定了，increment事件触发时incrementTotal事件也触发，子组件已经和它外部完全解耦了。它所做的只是报告自己的内部事件，至于父组件是否关心则与它无关。<br>    <div id="counter-event-example"><br>      <p></p><br>      <button-counter v-on:increment="incrementTotal"></button-counter><br>      <button-counter v-on:increment="incrementTotal"></button-counter><br>    </div></p>
+<pre><code>Vue.component(&apos;button-counter&apos;, {
+  template: &apos;&lt;button v-on:click=&quot;increment&quot;&gt;{{ counter }}&lt;/button&gt;&apos;,
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment: function () {
+      this.counter += 1
+      this.$emit(&apos;increment&apos;)
+    }
+  },
+})
+new Vue({
+  el: &apos;#counter-event-example&apos;,
+  data: {
+    total: 0
+  },
+  methods: {
+    incrementTotal: function () {
+      this.total += 1
+    }
+  }
+})
+</code></pre><p>总之v-on是监听绑定事件的，而v-bind是绑定属性参数的，vm-$on(事件，回调函数)是监听当前实例上的自定义事件。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。<br>vm.$emit(事件，参数)是触发当前实例上的事件。附加参数都会传给监听器回调。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[Ajax跨域理解]]></title>
-      <url>/2017/07/26/Ajax%E8%B7%A8%E5%9F%9F%E7%90%86%E8%A7%A3/</url>
+      <url>/2017/07/29/Ajax%E8%B7%A8%E5%9F%9F%E7%90%86%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>什么是跨域？</p>
 <p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p>
 <p>same-origin policy [同源策略]<br>　　在客户端编程语言中，如javascript和ActionScript，同源策略是一个很重要的安全理念，它在保证数据的安全性方面有着重要的意义。同源策略规定跨域之间的脚本是隔离的，一个域的脚本不能访问和操作另外一个域的绝大部分属性和方法。</p>
@@ -360,17 +442,17 @@ xhr.send(JSON.stringify(data));
 <p>以下是对两种不同请求详解：<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 ]]></content>
       
+        <categories>
+            
+            <category> Ajax </category>
+            
+        </categories>
         
-        <tags>
-            
-            <tag> Ajax </tag>
-            
-        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[ES6总结]]></title>
+      <title><![CDATA[ES6 (一)]]></title>
       <url>/2017/07/25/ES6%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>目录</p>
 <p>1.var 和 let/const 的比较用<br>2.块级作用域代替 IIFES<br>3.箭头函数<br>4.字符串<br>5.解构<br>6.模块</p>
@@ -424,14 +506,15 @@ console.log(food); // Reference Error
 <p>import foo, { foo1, foo2 } from ‘foos’;<br>当我们用 commonjs 的语法导入一个模块的出口时（比如 React），我们可以这样做：</p>
 <p>import React from ‘react’;<br>const { Component, PropTypes } = React;<br>还有更精简的写法：</p>
 <p>import React, { Component, PropTypes } from ‘react’;<br>导出的值是动态引用的，而不是拷贝。因此，在一个模块中改变一个变量的绑定将影响输出模块中的值。应该避免改变这些导出值的公共接口。</p>
+<p>更多关于ES6模块<br><a href="http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0&amp;x=11&amp;y=2#docs/module" target="_blank" rel="external">http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0&amp;x=11&amp;y=2#docs/module</a></p>
 ]]></content>
       
+        <categories>
+            
+            <category> ES6 </category>
+            
+        </categories>
         
-        <tags>
-            
-            <tag> ES6 </tag>
-            
-        </tags>
         
     </entry>
     

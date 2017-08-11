@@ -105,16 +105,17 @@
 
 
 
-<meta name="description" content="王豪的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wanghao Blogs">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="JS的单线程 Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。 Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是需要一门轻量的浏览器脚本语言来做一些简单的用户交互及DOM操作。相比多线程，单线程不需要考虑创建线程、销毁线程、线程间通信等等诸如此类的复杂问题。所以，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的异步问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/09/浅谈JS中的异步问题/index.html">
 <meta property="og:site_name" content="Wanghao Blogs">
-<meta property="og:description" content="王豪的个人博客">
+<meta property="og:description" content="JS的单线程 Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。 Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是需要一门轻量的浏览器脚本语言来做一些简单的用户交互及DOM操作。相比多线程，单线程不需要考虑创建线程、销毁线程、线程间通信等等诸如此类的复杂问题。所以，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-11T13:07:24.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wanghao Blogs">
-<meta name="twitter:description" content="王豪的个人博客">
+<meta name="twitter:title" content="JS中的异步问题">
+<meta name="twitter:description" content="JS的单线程 Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。 Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是需要一门轻量的浏览器脚本语言来做一些简单的用户交互及DOM操作。相比多线程，单线程不需要考虑创建线程、销毁线程、线程间通信等等诸如此类的复杂问题。所以，">
 
 
 
@@ -142,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/09/浅谈JS中的异步问题/"/>
 
 
 
 
 
-  <title>归档 | Wanghao Blogs</title>
+  <title>JS中的异步问题 | Wanghao Blogs</title>
   
 
 
@@ -173,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,214 +282,203 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 5 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/浅谈JS中的异步问题/" itemprop="url">
-              
-                <span itemprop="name">JS中的异步问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T18:46:33+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/Ajax笔记/" itemprop="url">
-              
-                <span itemprop="name">Ajax笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T17:51:40+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/02/Vue组件理解/" itemprop="url">
-              
-                <span itemprop="name">Vue组件理解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-02T20:47:50+08:00"
-              content="2017-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/29/Ajax跨域理解/" itemprop="url">
-              
-                <span itemprop="name">Ajax跨域理解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-29T13:02:01+08:00"
-              content="2017-07-29" >
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/25/ES6总结/" itemprop="url">
-              
-                <span itemprop="name">ES6 (一)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-25T16:38:10+08:00"
-              content="2017-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/浅谈JS中的异步问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wanghao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wanghao Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS中的异步问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T18:46:33+08:00">
+                2017-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=449818934&auto=1&height=32"></iframe>
+
+<p>JS的单线程</p>
+<p>Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。</p>
+<p>Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是需要一门轻量的浏览器脚本语言来做一些简单的用户交互及DOM操作。相比多线程，单线程不需要考虑创建线程、销毁线程、线程间通信等等诸如此类的复杂问题。所以，为了避免复杂性，Javascript从诞生伊始就是单线程。</p>
+<pre><code>Javascript中的异步原理
+</code></pre><p>在C#、Java等语言中，异步操作往往是创建一个线程来执行异步任务，异步任务执行完毕之后再将执行结果通知给主线程。这其中往往会伴随着，多线程、线程池、并发等相关术语。但是在Javascript中不存在这些。<br>如前文所述，Javascript是单线程的，那么Javascript的异步是怎么回事呢？</p>
+<p>两组概念<br>我们应该首先明确两组概念。就是同步和异步以及阻塞和非阻塞这两组概念。</p>
+<p>首先这是两组不同的概念。同步、异步一般指的是消息的通信机制；而阻塞、非阻塞一般强调的是程序在等待（消息）时的状态。</p>
+<p>同步  发出一个功能调用（执行函数）时，在没有得到调用结果之前，该调用就不会返回 </p>
+<p>异步  发出一个调用后，不关心结果返回，而是立即返回。结果出来后，将会通过一些额外手段通知调用者    注1</p>
+<p>阻塞  在调用结果返回之前，当前线程会被挂起等待。直到得到结果之后函数调用才会返回。</p>
+<p>非阻塞 在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。<br>注1：这里所说的额外手段，往往是指异步调用的一些具体实现方式，比如事件监听、轮询等等。<br>可见，同步、异步和阻塞、非阻塞是两组概念，我们不应该混淆他们。同时，这两组概念其实是可以共存，可以混合搭配最多四种模式。</p>
+<p>其实Javascript中的异步并非真正意思上的异步，它最多能做到非阻塞的地步。所以Node.js官网在介绍自己时仅仅是说“基于事件驱动”，“非阻塞IO模型”，并没有提到异步的字眼。</p>
+<pre><code>JS中的异步
+</code></pre><p>在Javascript中，Javascript中异步的应用场景主要有两个，其一是基于浏览器的各种异步IO和事件监听，其二是Javascript代码中的关于定时器（setTimeout、setInterval）的应用。<br>对于异步IO，比如ajax异步请求。当js代码发出一个ajax请求时，浏览器仍然会接着往下执行js代码。我们将处理ajax返回的逻辑绑定在ajax回调函数上，当ajax请求完毕成功返回时会触发回调函数，然后接着执行我们绑定的处理逻辑。</p>
+<p>Javascript中常见的异步编程模型</p>
+<pre><code>回调函数
+
+function loading(callback) {
+    // 持续3秒的loading展示
+    setTimeout(function () {
+        callback();
+    }, 3000);
+}
+function show() {
+    // 展示真实数据给用户
+}
+loading(show);
+// more code
+</code></pre><p>代码中的loading(show)就是将函数show()作为函数loading()的参数。在loading()完成3秒的loading之后，再去执行回调函数（示例使用了setTimeout来模拟）。通过这种方法，show()就变成了异步调用，它的执行时机被推迟到loading()即将完成之前。意思就是发出一个调用后，show函数立刻被调用，结果并没有返回，但是立即返回了函数。</p>
+<pre><code>事件监听
+</code></pre><p>事件监听在UI编程中随处可见。比如我给一个按钮绑定一个点击事件，给一个输入框绑定一个键盘敲击事件等等。比如下面的代码，</p>
+<pre><code>$(&apos;#button&apos;).on(&apos;click&apos;, function () {
+    console.log(&apos;我被点了&apos;);
+});
+</code></pre><p>上面使用了JQuery的语法，给一个按钮绑定了一个事件。当事件触发时，会执行绑定的逻辑。这比较容易理解。</p>
+<p>除了界面事件之外，通常我们还有各种网络请求事件，比如ajax，websocket等等。这些网络请求在不同阶段也会触发各种事件，如果程序中有绑定相关处理逻辑，那么当事件触发时就会去执行相关逻辑。</p>
+<pre><code>ES6中的Promise
+</code></pre><p>具体可以看阮一峰的详细教程<br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/promise</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/06/Ajax笔记/" rel="next" title="Ajax笔记">
+                <i class="fa fa-chevron-left"></i> Ajax笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -496,6 +486,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -755,11 +751,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -786,6 +780,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139907"></script>
+      <!-- UY END -->
     
   
 

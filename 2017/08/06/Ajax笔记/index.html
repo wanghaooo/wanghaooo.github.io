@@ -105,16 +105,17 @@
 
 
 
-<meta name="description" content="王豪的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wanghao Blogs">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="AJAX包括以下几个步骤。 1.创建AJAX对象 2.发出HTTP请求 3.接收服务器传回的数据 4.更新网页数据 概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后，再进行处理。AJAX可以是同步请求，也可以是异步请求。但是，大多数情况下，特指异步请求。因为同步的Ajax请求，对浏览器有“堵塞效应”。意思就是在调用结果返回之前，当前线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax笔记">
+<meta property="og:url" content="http://yoursite.com/2017/08/06/Ajax笔记/index.html">
 <meta property="og:site_name" content="Wanghao Blogs">
-<meta property="og:description" content="王豪的个人博客">
+<meta property="og:description" content="AJAX包括以下几个步骤。 1.创建AJAX对象 2.发出HTTP请求 3.接收服务器传回的数据 4.更新网页数据 概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后，再进行处理。AJAX可以是同步请求，也可以是异步请求。但是，大多数情况下，特指异步请求。因为同步的Ajax请求，对浏览器有“堵塞效应”。意思就是在调用结果返回之前，当前线">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-11T13:07:22.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wanghao Blogs">
-<meta name="twitter:description" content="王豪的个人博客">
+<meta name="twitter:title" content="Ajax笔记">
+<meta name="twitter:description" content="AJAX包括以下几个步骤。 1.创建AJAX对象 2.发出HTTP请求 3.接收服务器传回的数据 4.更新网页数据 概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后，再进行处理。AJAX可以是同步请求，也可以是异步请求。但是，大多数情况下，特指异步请求。因为同步的Ajax请求，对浏览器有“堵塞效应”。意思就是在调用结果返回之前，当前线">
 
 
 
@@ -142,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/06/Ajax笔记/"/>
 
 
 
 
 
-  <title>Wanghao Blogs</title>
+  <title>Ajax笔记 | Wanghao Blogs</title>
   
 
 
@@ -173,9 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,153 +281,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/浅谈JS中的异步问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wanghao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wanghao Blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/09/浅谈JS中的异步问题/" itemprop="url">JS中的异步问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T18:46:33+08:00">
-                2017-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-
-JS的单线程
-Javascript是单线程的，可以说单线程是Javascript语言最本质的特性之一。Javascript引擎在运行js代码的时候，同一个时间只能执行单个任务。
-Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是需要一门轻量的浏览器脚本语言来做一些简单的用户交互及
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/09/浅谈JS中的异步问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -454,9 +309,7 @@ Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是�
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/06/Ajax笔记/" itemprop="url">Ajax笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">Ajax笔记</h1>
         
 
         <div class="post-meta">
@@ -525,35 +378,313 @@ Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是�
       
 
       
-        
-          
-          AJAX包括以下几个步骤。
-1.创建AJAX对象
+        <p>AJAX包括以下几个步骤。</p>
+<pre><code>1.创建AJAX对象
 2.发出HTTP请求
 3.接收服务器传回的数据
 4.更新网页数据
-概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后，再进行处理。AJAX可以是同步请求，也可以是异步请求。但是，大多数情况
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/06/Ajax笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+</code></pre><p>概括起来，就是一句话，AJAX通过原生的XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后，再进行处理。<br>AJAX可以是同步请求，也可以是异步请求。但是，大多数情况下，特指异步请求。因为同步的Ajax请求，对浏览器有“堵塞效应”。<br>意思就是在调用结果返回之前，当前线程会被挂起等待。直到得到结果之后函数调用才会返回。<br>而非阻塞则是在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</p>
+<p>XMLHttpRequest对象用来在浏览器与服务器之间传送数据。</p>
+<pre><code>var ajax = new XMLHttpRequest();
+ajax.open(&apos;GET&apos;, &apos;http://www.example.com/page.php&apos;, true);
+</code></pre><p>上面代码向指定的服务器网址，发出GET请求。</p>
+<p>然后，AJAX指定回调函数，监听通信状态（readyState属性）的变化。</p>
+<pre><code>ajax.onreadystatechange = handleStateChange;
+</code></pre><p>一旦拿到服务器返回的数据，AJAX不会刷新整个网页，而是只更新相关部分，从而不打断用户正在做的事情。<br>注意，AJAX只能向同源网址（协议、域名、端口都相同）发出HTTP请求，如果发出跨源请求，就会报错</p>
+<p>下面是XMLHttpRequest对象的典型用法。</p>
+<p>var xhr = new XMLHttpRequest();</p>
+<pre><code>// 指定通信过程中状态改变时的回调函数
+xhr.onreadystatechange = function(){
+  // 通信成功时，状态值为4
+  if (xhr.readyState === 4){
+    if (xhr.status === 200){
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+// open方式用于指定HTTP动词、请求的网址、是否异步
+xhr.open(&apos;GET&apos;, &apos;/endpoint&apos;, true);
+// 发送HTTP请求
+xhr.send(null);
+
+
+XMLHttpRequest实例的属性
+</code></pre><p>readyState是一个只读属性，用一个整数和对应的常量，表示XMLHttpRequest请求当前所处的状态。</p>
+<p>0，对应常量UNSENT，表示XMLHttpRequest实例已经生成，但是open()方法还没有被调用。<br>1，对应常量OPENED，表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息。<br>2，对应常量HEADERS_RECEIVED，表示send()方法已经执行，并且头信息和状态码已经收到。<br>3，对应常量LOADING，表示正在接收服务器传来的body部分的数据，如果responseType属性是text或者空字符串，responseText就会包含已经收到的部分信息。<br>4，对应常量DONE，表示服务器数据已经完全接收，或者本次接收已经失败了。</p>
+<p>onreadystatechange属性指向一个回调函数，当readystatechange事件发生的时候，这个回调函数就会调用，并且XMLHttpRequest实例的readyState属性也会发生变化。</p>
+<p>另外，如果使用abort()方法，终止XMLHttpRequest请求，onreadystatechange回调函数也会被调用。</p>
+<pre><code>var xmlhttp = new XMLHttpRequest();
+xmlhttp.open( &apos;GET&apos;, &apos;http://example.com&apos; , true );
+xmlhttp.onreadystatechange = function () {
+  if ( XMLHttpRequest.DONE != xmlhttp.readyState ) {
+    return;
+  }
+  if ( 200 != xmlhttp.status ) {
+    return;
+  }
+  console.log( xmlhttp.responseText );
+};
+xmlhttp.send();
+</code></pre><p>response属性为只读，返回接收到的数据体（即body部分）。它的类型可以是ArrayBuffer、Blob、Document、JSON对象、或者一个字符串，这由XMLHttpRequest.responseType属性的值决定。<br>如果本次请求没有成功或者数据不完整，该属性就会等于null。</p>
+<p>responseType属性用来指定服务器返回数据（xhr.response）的类型。</p>
+<p>“”：字符串（默认值）<br>“arraybuffer”：ArrayBuffer对象<br>“blob”：Blob对象<br>“document”：Document对象<br>“json”：JSON对象<br>“text”：字符串<br>text类型适合大多数情况，而且直接处理文本也比较方便，document类型适合返回XML文档的情况，blob类型适合读取二进制数据，比如图片文件。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.open(&apos;GET&apos;, &apos;/path/to/image.png&apos;, true);
+xhr.responseType = &apos;blob&apos;;
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    var blob = new Blob([this.response], {type: &apos;image/png&apos;});
+    // 或者
+    var blob = oReq.response;
+  }
+};
+xhr.send();
+</code></pre><p>如果将这个属性设为ArrayBuffer，就可以按照数组的方式处理二进制数据。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.open(&apos;GET&apos;, &apos;/path/to/image.png&apos;, true);
+xhr.responseType = &apos;arraybuffer&apos;;
+xhr.onload = function(e) {
+  var uInt8Array = new Uint8Array(this.response);
+  for (var i = 0, len = binStr.length; i &lt; len; ++i) {
+  // var byte = uInt8Array[i];
+  }
+};
+xhr.send();
+</code></pre><p>如果将这个属性设为“json”，支持JSON的浏览器（Firefox&gt;9，chrome&gt;30），就会自动对返回数据调用JSON.parse()方法。也就是说，你从xhr.response属性（注意，不是xhr.responseText属性）得到的不是文本，而是一个JSON对象。</p>
+<p>XHR2支持Ajax的返回类型为文档，即xhr.responseType=”document” 。这意味着，对于那些打开CORS的网站，我们可以直接用Ajax抓取网页，然后不用解析HTML字符串，直接对XHR回应进行DOM操作。</p>
+<p>responseText属性返回从服务器接收到的字符串，该属性为只读。如果本次请求没有成功或者数据不完整，该属性就会等于null。<br>如果服务器返回的数据格式是JSON，就可以使用responseText属性。</p>
+<pre><code>var data = ajax.responseText;
+data = JSON.parse(data);
+</code></pre><p>responseType<br>responseType属性用来指定服务器返回数据（xhr.response）的类型。</p>
+<p>”“：字符串（默认值）<br>“arraybuffer”：ArrayBuffer对象<br>“blob”：Blob对象<br>“document”：Document对象<br>“json”：JSON对象<br>“text”：字符串<br>text类型适合大多数情况，而且直接处理文本也比较方便，document类型适合返回XML文档的情况，blob类型适合读取二进制数据，比如图片文件。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.open(&apos;GET&apos;, &apos;/path/to/image.png&apos;, true);
+xhr.responseType = &apos;blob&apos;;
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    var blob = new Blob([this.response], {type: &apos;image/png&apos;});
+    // 或者
+    var blob = oReq.response;
+  }
+};
+</code></pre><p>xhr.send();<br>如果将这个属性设为ArrayBuffer，就可以按照数组的方式处理二进制数据。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.open(&apos;GET&apos;, &apos;/path/to/image.png&apos;, true);
+xhr.responseType = &apos;arraybuffer&apos;;
+xhr.onload = function(e) {
+  var uInt8Array = new Uint8Array(this.response);
+  for (var i = 0, len = binStr.length; i &lt; len; ++i) {
+  // var byte = uInt8Array[i];
+  }
+};
+</code></pre><p>xhr.send();<br>如果将这个属性设为“json”，支持JSON的浏览器（Firefox&gt;9，chrome&gt;30），就会自动对返回数据调用JSON.parse()方法。也就是说，你从xhr.response属性（注意，不是xhr.responseText属性）得到的不是文本，而是一个JSON对象。</p>
+<p>XHR2支持Ajax的返回类型为文档，即xhr.responseType=”document” 。这意味着，对于那些打开CORS的网站，我们可以直接用Ajax抓取网页，然后不用解析HTML字符串，直接对XHR回应进行DOM操作。</p>
+<p>responseText<br>responseText属性返回从服务器接收到的字符串，该属性为只读。如果本次请求没有成功或者数据不完整，该属性就会等于null。</p>
+<p>如果服务器返回的数据格式是JSON，就可以使用responseText属性。</p>
+<pre><code>var data = ajax.responseText;
+data = JSON.parse(data);
+</code></pre><p>responseXML属性返回从服务器接收到的Document对象，该属性为只读。如果本次请求没有成功，或者数据不完整，或者不能被解析为XML或HTML，该属性等于null。<br>返回的数据会被直接解析为DOM对象</p>
+<p>status属性为只读属性，表示本次请求所得到的HTTP状态码，它是一个整数。一般来说，如果通信成功的话，这个状态码是200。</p>
+<pre><code>200, OK，访问正常
+301, Moved Permanently，永久移动
+302, Move temporarily，暂时移动
+304, Not Modified，未修改
+307, Temporary Redirect，暂时重定向
+401, Unauthorized，未授权
+403, Forbidden，禁止访问
+404, Not Found，未发现指定网址
+500, Internal Server Error，服务器发生错误
+</code></pre><p>基本上，只有2xx和304的状态码，表示服务器返回是正常状态。</p>
+<p>statusText属性为只读属性，返回一个字符串，表示服务器发送的状态提示。不同于status属性，该属性包含整个状态信息，比如”200 OK“。</p>
+<p>timeout属性等于一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p>
+<pre><code>  var xhr = new XMLHttpRequest();
+  xhr.ontimeout = function () {
+    console.error(&quot;The request for &quot; + url + &quot; timed out.&quot;);
+  };
+  xhr.onload = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        callback.apply(xhr, args);
+      } else {
+        console.error(xhr.statusText);
+      }
+    }
+  };
+  xhr.open(&quot;GET&quot;, url, true);
+  xhr.timeout = timeout;
+  xhr.send(null);
+}
+</code></pre><p>事件监听接口<br>XMLHttpRequest第一版，只能对onreadystatechange这一个事件指定回调函数。该事件对所有情况作出响应。 XMLHttpRequest第二版允许对更多的事件指定回调函数。</p>
+<p>onloadstart 请求发出<br>onprogress 正在发送和加载数据<br>onabort 请求被中止，比如用户调用了abort()方法<br>onerror 请求失败<br>onload 请求成功完成<br>ontimeout 用户指定的时限到期，请求还未完成<br>onloadend 请求完成，不管成果或失败</p>
+<pre><code>xhr.onload = function() {
+ var responseText = xhr.responseText;
+ console.log(responseText);
+ // process the response.
+};
+xhr.onerror = function() {
+  console.log(&apos;There was an error!&apos;);
+};
+</code></pre><p>注意，如果发生网络错误（比如服务器无法连通），onerror事件无法获取报错信息，所以只能显示报错。</p>
+<p>withCredentials属性是一个布尔值，表示跨域请求时，用户信息（比如Cookie和认证的HTTP头信息）是否会包含在请求之中，默认为false。即向example.com发出跨域请求时，不会发送example.com设置在本机上的Cookie（如果有的话）。</p>
+<p>如果你需要通过跨域AJAX发送Cookie，需要打开withCredentials。</p>
+<p>xhr.withCredentials = true;<br>为了让这个属性生效，服务器必须显式返回Access-Control-Allow-Credentials这个头信息。</p>
+<p>Access-Control-Allow-Credentials: true<br>.withCredentials属性打开的话，不仅会发送Cookie，还会设置远程主机指定的Cookie。注意，此时你的脚本还是遵守同源政策，无法 从document.cookie或者HTTP回应的头信息之中，读取这些Cookie。</p>
+<pre><code>XMLHttpRequest实例的方法
+</code></pre><p>abort()<br>abort方法用来终止已经发出的HTTP请求。</p>
+<pre><code>ajax.open(&apos;GET&apos;, &apos;http://www.example.com/page.php&apos;, true);
+var ajaxAbortTimer = setTimeout(function() {
+  if (ajax) {
+    ajax.abort();
+    ajax = null;
+  }
+}, 5000);
+</code></pre><p>上面代码在发出5秒之后，终止一个AJAX请求。</p>
+<p>open()<br>XMLHttpRequest对象的open方法用于指定发送HTTP请求的参数，它的使用格式如下，一共可以接受五个参数。</p>
+<pre><code>method：表示HTTP动词，比如“GET”、“POST”、“PUT”和“DELETE”。
+url: 表示请求发送的网址。
+async: 格式为布尔值，默认为true，表示请求是否为异步。如果设为false，则send()方法只有等到收到服务器返回的结果，才会有返回值。
+user：表示用于认证的用户名，默认为空字符串。
+password：表示用于认证的密码，默认为空字符串。
+</code></pre><p>如果对使用过open()方法的请求，再次使用这个方法，等同于调用abort()。</p>
+<p>下面发送POST请求的例子。</p>
+<pre><code>xhr.open(&apos;POST&apos;, encodeURI(&apos;someURL&apos;));
+xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+xhr.onload = function() {};
+xhr.send(encodeURI(&apos;dataString&apos;));
+</code></pre><p>上面方法中，open方法向指定URL发出POST请求，send方法送出实际的数据。</p>
+<p>下面是一个同步AJAX请求的例子。</p>
+<pre><code>var request = new XMLHttpRequest();
+request.open(&apos;GET&apos;, &apos;/bar/foo.txt&apos;, false);
+request.send(null);
+if (request.status === 200) {
+  console.log(request.responseText);
+}
+send()
+</code></pre><p>send方法用于实际发出HTTP请求。如果不带参数，就表示HTTP请求只包含头信息，也就是只有一个URL，典型例子就是GET请求；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是POST请求。</p>
+<pre><code>ajax.open(&apos;GET&apos;
+  , &apos;http://www.example.com/somepage.php?id=&apos; + encodeURIComponent(id)
+  , true
+);
+</code></pre><p>// 等同于</p>
+<pre><code>var data = &apos;id=&apos; + encodeURIComponent(id));
+ajax.open(&apos;GET&apos;, &apos;http://www.example.com/somepage.php&apos;, true);
+ajax.send(data);
+</code></pre><p>上面代码中，GET请求的参数，可以作为查询字符串附加在URL后面，也可以作为send方法的参数。</p>
+<p>下面是发送POST请求的例子。</p>
+<pre><code>var data = &apos;email=&apos;
+  + encodeURIComponent(email)
+  + &apos;&amp;password=&apos;
+  + encodeURIComponent(password);
+ajax.open(&apos;POST&apos;, &apos;http://www.example.com/somepage.php&apos;, true);
+ajax.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+ajax.send(data);
+</code></pre><p>如果请求是异步的（默认为异步），该方法在发出请求后会立即返回。如果请求为同步，该方法只有等到收到服务器回应后，才会返回。</p>
+<p>注意，所有XMLHttpRequest的监听事件，都必须在send()方法调用之前设定。</p>
+<p>send方法的参数就是发送的数据。多种格式的数据，都可以作为它的参数。</p>
+<pre><code>void send();
+void send(ArrayBufferView data);
+void send(Blob data);
+void send(Document data);
+void send(String data);
+void send(FormData data);
+</code></pre><p>如果发送Document数据，在发送之前，数据会先被串行化。</p>
+<p>发送二进制数据，最好使用ArrayBufferView或Blob对象，这使得通过Ajax上传文件成为可能。</p>
+<p>下面是一个上传ArrayBuffer对象的例子。</p>
+<pre><code>function sendArrayBuffer() {
+  var xhr = new XMLHttpRequest();
+  var uInt8Array = new Uint8Array([1, 2, 3]);
+  xhr.open(&apos;POST&apos;, &apos;/server&apos;, true);
+  xhr.onload = function(e) { ... };
+  xhr.send(uInt8Array.buffer);
+}
+</code></pre><p>FormData类型可以用于构造表单数据。</p>
+<pre><code>var formData = new FormData();
+formData.append(&apos;username&apos;, &apos;张三&apos;);
+formData.append(&apos;email&apos;, &apos;zhangsan@example.com&apos;);
+formData.append(&apos;birthDate&apos;, 1940);
+var xhr = new XMLHttpRequest();
+xhr.open(&quot;POST&quot;, &quot;/register&quot;);
+xhr.send(formData);
+</code></pre><p>上面的代码构造了一个formData对象，然后使用send方法发送。它的效果与点击下面表单的submit按钮是一样的。</p>
+<pre><code>&lt;form id=&apos;registration&apos; name=&apos;registration&apos; action=&apos;/register&apos;&gt;
+    &lt;input type=&apos;text&apos; name=&apos;username&apos; value=&apos;张三&apos;&gt;
+    &lt;input type=&apos;email&apos; name=&apos;email&apos; value=&apos;zhangsan@example.com&apos;&gt;
+    &lt;input type=&apos;number&apos; name=&apos;birthDate&apos; value=&apos;1940&apos;&gt;
+    &lt;input type=&apos;submit&apos; onclick=&apos;return sendForm(this.form);&apos;&gt;
+&lt;/form&gt;
+</code></pre><p>FormData也可以将现有表单构造生成。</p>
+<pre><code>var formElement = document.querySelector(&quot;form&quot;);
+var request = new XMLHttpRequest();
+request.open(&quot;POST&quot;, &quot;submitform.php&quot;);
+request.send(new FormData(formElement));
+</code></pre><p>FormData对象还可以对现有表单添加数据，这为我们操作表单提供了极大的灵活性。</p>
+<pre><code>function sendForm(form) {
+    var formData = new FormData(form);
+    formData.append(&apos;csrf&apos;, &apos;e69a18d7db1286040586e6da1950128c&apos;);
+    var xhr = new XMLHttpRequest();
+    xhr.open(&apos;POST&apos;, form.action, true);
+    xhr.onload = function(e) {
+        // ...
+    };
+    xhr.send(formData);
+    return false;
+}
+var form = document.querySelector(&apos;#registration&apos;);
+sendForm(form);
+</code></pre><p>FormData对象也能用来模拟File控件，进行文件上传。</p>
+<pre><code>function uploadFiles(url, files) {
+  var formData = new FormData();
+  for (var i = 0, file; file = files[i]; ++i) {
+    formData.append(file.name, file); // 可加入第三个参数，表示文件名
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open(&apos;POST&apos;, url, true);
+  xhr.onload = function(e) { ... };
+  xhr.send(formData);  // multipart/form-data
+}
+document.querySelector(&apos;input[type=&quot;file&quot;]&apos;).addEventListener(&apos;change&apos;, function(e) {
+  uploadFiles(&apos;/server&apos;, this.files);
+}, false);
+</code></pre><p>FormData也可以加入JavaScript生成的文件。</p>
+<p>// 添加JavaScript生成的文件</p>
+<pre><code>var content = &apos;&lt;a id=&quot;a&quot;&gt;&lt;b id=&quot;b&quot;&gt;hey!&lt;/b&gt;&lt;/a&gt;&apos;;
+var blob = new Blob([content], { type: &quot;text/xml&quot;});
+formData.append(&quot;webmasterfile&quot;, blob);
+setRequestHeader()
+</code></pre><p>setRequestHeader方法用于设置HTTP头信息。该方法必须在open()之后、send()之前调用。如果该方法多次调用，设定同一个字段，则每一次调用的值会被合并成一个单一的值发送。</p>
+<pre><code>xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/json&apos;);
+xhr.setRequestHeader(&apos;Content-Length&apos;, JSON.stringify(data).length);
+xhr.send(JSON.stringify(data));
+</code></pre><p>上面代码首先设置头信息Content-Type，表示发送JSON格式的数据；然后设置Content-Length，表示数据长度；最后发送JSON数据。</p>
+<pre><code>Fetch API
+</code></pre><p>Fetch API是一种新规范，用来取代XMLHttpRequest对象。它主要有两个特点，一是接口合理化，Ajax是将所有不同性质的接口都放在XHR对象上，而Fetch是将它们分散在几个不同的对象上，设计更合理；二是Fetch操作返回Promise对象，避免了嵌套的回调函数。</p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -561,427 +692,42 @@ Javascript最初被设计成一种浏览器脚本语言，决策者们仅仅是�
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/02/Vue组件理解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wanghao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wanghao Blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/02/Vue组件理解/" itemprop="url">Vue组件理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T20:47:50+08:00">
-                2017-08-02
-              </time>
+              <a href="/2017/08/02/Vue组件理解/" rel="next" title="Vue组件理解">
+                <i class="fa fa-chevron-left"></i> Vue组件理解
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/08/09/浅谈JS中的异步问题/" rel="prev" title="JS中的异步问题">
+                JS中的异步问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          props
-组件实例的作用域是孤立的。这意味着不能在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的 props 选项。子组件要显式地用 props 选项声明它期待获得的数据：
-Vue.component(&apos;child&apos;, {
-  // 声明 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/02/Vue组件理解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/Ajax跨域理解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wanghao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wanghao Blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/29/Ajax跨域理解/" itemprop="url">Ajax跨域理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T13:02:01+08:00">
-                2017-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ajax/" itemprop="url" rel="index">
-                    <span itemprop="name">Ajax</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          什么是跨域？
-首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：
-same-origin policy [同源策略]　　在客户端编程语言中，如javascript和ActionScr
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/29/Ajax跨域理解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/ES6总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wanghao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wanghao Blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/25/ES6总结/" itemprop="url">ES6 (一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T16:38:10+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          目录
-1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块
-var 和 let/const 的比较
-除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/25/ES6总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -989,6 +735,12 @@ var 和 let/const 的比较
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -1248,10 +1000,10 @@ var 和 let/const 的比较
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -1277,6 +1029,10 @@ var 和 let/const 的比较
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139907"></script>
+      <!-- UY END -->
     
   
 

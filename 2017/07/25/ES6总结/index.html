@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ES6," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -106,16 +106,15 @@
 
 
 <meta name="description" content="目录 1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块 var 和 let/const 的比较 除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。使用 var 的栗子： 123456789101112var snack = &amp;a">
-<meta name="keywords" content="ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6总结">
+<meta property="og:title" content="ES6 (一)">
 <meta property="og:url" content="http://yoursite.com/2017/07/25/ES6总结/index.html">
 <meta property="og:site_name" content="Wanghao Blogs">
 <meta property="og:description" content="目录 1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块 var 和 let/const 的比较 除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。使用 var 的栗子： 123456789101112var snack = &amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T12:35:08.149Z">
+<meta property="og:updated_time" content="2017-08-11T13:07:16.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6总结">
+<meta name="twitter:title" content="ES6 (一)">
 <meta name="twitter:description" content="目录 1.var 和 let/const 的比较用2.块级作用域代替 IIFES3.箭头函数4.字符串5.解构6.模块 var 和 let/const 的比较 除了 var ，我们现在还可以使用两个新的标示符来定义一个变量 —— let 和 const。和 var 不一样的是，let 和 const 不存在变量提升。使用 var 的栗子： 123456789101112var snack = &amp;a">
 
 
@@ -150,7 +149,7 @@
 
 
 
-  <title>ES6总结 | Wanghao Blogs</title>
+  <title>ES6 (一) | Wanghao Blogs</title>
   
 
 
@@ -310,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6总结</h1>
+          <h1 class="post-title" itemprop="name headline">ES6 (一)</h1>
         
 
         <div class="post-meta">
@@ -332,6 +331,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -409,6 +430,7 @@ console.log(food); // Reference Error
 <p>import foo, { foo1, foo2 } from ‘foos’;<br>当我们用 commonjs 的语法导入一个模块的出口时（比如 React），我们可以这样做：</p>
 <p>import React from ‘react’;<br>const { Component, PropTypes } = React;<br>还有更精简的写法：</p>
 <p>import React, { Component, PropTypes } from ‘react’;<br>导出的值是动态引用的，而不是拷贝。因此，在一个模块中改变一个变量的绑定将影响输出模块中的值。应该避免改变这些导出值的公共接口。</p>
+<p>更多关于ES6模块<br><a href="http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0&amp;x=11&amp;y=2#docs/module" target="_blank" rel="external">http://es6.ruanyifeng.com/?search=%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0&amp;x=11&amp;y=2#docs/module</a></p>
 
       
     </div>
@@ -436,12 +458,6 @@ console.log(food); // Reference Error
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
-          
-        </div>
-      
 
       
       
@@ -457,7 +473,7 @@ console.log(food); // Reference Error
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/Ajax跨域理解/" rel="prev" title="Ajax跨域理解">
+              <a href="/2017/07/29/Ajax跨域理解/" rel="prev" title="Ajax跨域理解">
                 Ajax跨域理解 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -525,12 +541,21 @@ console.log(food); // Reference Error
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -538,7 +563,7 @@ console.log(food); // Reference Error
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
